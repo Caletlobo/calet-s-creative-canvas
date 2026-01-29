@@ -312,10 +312,6 @@
     height: 180px;
   }
 
-  .flip-card-container.col-span-2.row-span-2 {
-    height: 376px;
-  }
-
   .flip-card-inner {
     @apply relative w-full h-full transition-transform duration-500;
     transform-style: preserve-3d;
@@ -336,13 +332,32 @@
     transform: rotateY(180deg);
   }
 
+  /* Hero Section Flip Card */
+  .hero-flip-card {
+    height: auto !important;
+  }
+
+  /* Project Section Flip Cards */
+  .project-flip-card {
+    height: 220px;
+  }
+
+  /* Creative Skills Flip Cards */
+  .creative-flip-card {
+    height: 160px;
+  }
+
   @media (max-width: 640px) {
     .flip-card-container {
       height: 140px;
     }
 
-    .flip-card-container.col-span-2.row-span-2 {
-      height: 296px;
+    .project-flip-card {
+      height: 180px;
+    }
+
+    .creative-flip-card {
+      height: 130px;
     }
   }
 }
