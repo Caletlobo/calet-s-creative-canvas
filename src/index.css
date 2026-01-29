@@ -304,6 +304,47 @@
   .skill-card {
     @apply bg-card rounded-xl p-6 shadow-soft hover-lift border border-border/50;
   }
+
+  /* Flip Card Styles */
+  .flip-card-container {
+    @apply relative rounded-xl overflow-hidden shadow-soft hover:shadow-glow transition-shadow duration-300;
+    perspective: 1000px;
+    height: 180px;
+  }
+
+  .flip-card-container.col-span-2.row-span-2 {
+    height: 376px;
+  }
+
+  .flip-card-inner {
+    @apply relative w-full h-full transition-transform duration-500;
+    transform-style: preserve-3d;
+  }
+
+  .flip-card-inner.flipped {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    @apply absolute inset-0 w-full h-full rounded-xl overflow-hidden;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .flip-card-back {
+    transform: rotateY(180deg);
+  }
+
+  @media (max-width: 640px) {
+    .flip-card-container {
+      height: 140px;
+    }
+
+    .flip-card-container.col-span-2.row-span-2 {
+      height: 296px;
+    }
+  }
 }
 
 /* ================================================
