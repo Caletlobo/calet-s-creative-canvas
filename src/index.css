@@ -2,87 +2,89 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* ================================================
+   CALET LOBO PORTFOLIO - DESIGN SYSTEM
+   Premium Blue-Lavender Theme
+   ================================================ */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Background Colors */
+    --background: 240 20% 98%; /* #F9F9FB clean off-white */
+    --foreground: 220 20% 16%; /* #1F2937 charcoal dark */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Card Surfaces */
+    --card: 0 0% 100%; /* Pure white */
+    --card-foreground: 220 20% 16%;
 
+    /* Popover */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 220 20% 16%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary - Indigo accent */
+    --primary: 239 84% 67%; /* #6366F1 indigo */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Soft surfaces */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 13% 34%; /* #4B5563 cool gray */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted */
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 13% 34%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Premium purple hover */
+    --accent: 270 91% 65%; /* #A855F7 premium purple */
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Borders and Inputs */
+    --border: 220 13% 91%; /* #E5E7EB */
+    --input: 220 13% 91%;
+    --ring: 239 84% 67%;
 
-    --radius: 0.5rem;
+    /* Radius */
+    --radius: 0.75rem;
 
+    /* Custom Portfolio Colors */
+    --gradient-start: 231 100% 78%; /* #8E9EFF soft blue */
+    --gradient-end: 280 100% 75%; /* #C77DFF lavender */
+    --text-secondary: 220 13% 34%; /* #4B5563 */
+    
+    /* Sidebar (keeping for compatibility) */
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 239 84% 67%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 222 47% 8%;
     --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
+    --card: 222 47% 11%;
     --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
+    --popover: 222 47% 11%;
     --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
+    --primary: 239 84% 67%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 217 33% 17%;
     --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 270 91% 65%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 63% 31%;
     --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 212 27% 84%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -99,7 +101,255 @@ All colors MUST be HSL.
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* ================================================
+   CUSTOM UTILITY CLASSES
+   ================================================ */
+
+@layer utilities {
+  /* Gradient Backgrounds */
+  .gradient-hero {
+    background: linear-gradient(135deg, hsl(var(--gradient-start)) 0%, hsl(var(--gradient-end)) 100%);
+  }
+
+  .gradient-hero-subtle {
+    background: linear-gradient(135deg, 
+      hsl(var(--gradient-start) / 0.1) 0%, 
+      hsl(var(--gradient-end) / 0.15) 100%
+    );
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--gradient-start)) 0%, hsl(var(--gradient-end)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Text Colors */
+  .text-secondary {
+    color: hsl(var(--text-secondary));
+  }
+
+  /* Premium Shadows */
+  .shadow-soft {
+    box-shadow: 0 4px 20px -4px hsl(var(--foreground) / 0.08);
+  }
+
+  .shadow-elevated {
+    box-shadow: 
+      0 10px 40px -10px hsl(var(--foreground) / 0.1),
+      0 4px 20px -4px hsl(var(--foreground) / 0.05);
+  }
+
+  .shadow-glow {
+    box-shadow: 
+      0 10px 40px -10px hsl(var(--primary) / 0.3),
+      0 4px 20px -4px hsl(var(--accent) / 0.2);
+  }
+
+  /* Hover Animations */
+  .hover-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+      0 20px 50px -15px hsl(var(--foreground) / 0.15),
+      0 8px 25px -8px hsl(var(--foreground) / 0.1);
+  }
+
+  .hover-glow:hover {
+    box-shadow: 
+      0 15px 45px -12px hsl(var(--primary) / 0.35),
+      0 6px 20px -6px hsl(var(--accent) / 0.25);
+  }
+
+  /* Profile Image Float Animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  /* Progress Bar Animation */
+  @keyframes progressFill {
+    from {
+      width: 0%;
+    }
+  }
+
+  .animate-progress {
+    animation: progressFill 1.5s ease-out forwards;
+  }
+
+  /* Fade In Up Animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  /* Staggered Animation Delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+}
+
+/* ================================================
+   COMPONENT STYLES
+   ================================================ */
+
+@layer components {
+  /* Section Container */
+  .section-container {
+    @apply max-w-6xl mx-auto px-6 py-20;
+  }
+
+  /* Section Title */
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-center mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-secondary text-center max-w-2xl mx-auto mb-12;
+  }
+
+  /* Navigation Link */
+  .nav-link {
+    @apply relative text-foreground/80 hover:text-foreground transition-colors duration-300 py-2;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 origin-left transition-transform duration-300;
+  }
+
+  .nav-link:hover::after {
+    @apply scale-x-100;
+  }
+
+  /* Button Styles */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-white
+           transition-all duration-300 ease-out;
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+      0 10px 30px -10px hsl(var(--primary) / 0.5),
+      0 4px 15px -4px hsl(var(--accent) / 0.3);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold
+           border-2 border-primary text-primary bg-transparent
+           hover:bg-primary hover:text-white transition-all duration-300;
+  }
+
+  /* Card Styles */
+  .portfolio-card {
+    @apply bg-card rounded-2xl overflow-hidden shadow-soft hover-lift;
+  }
+
+  /* Input Styles */
+  .form-input {
+    @apply w-full px-4 py-3 rounded-xl border border-border bg-card
+           focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary
+           transition-all duration-300;
+  }
+
+  /* Progress Bar */
+  .progress-bar {
+    @apply h-3 rounded-full overflow-hidden;
+    background: hsl(var(--border));
+  }
+
+  .progress-fill {
+    @apply h-full rounded-full animate-progress;
+    background: linear-gradient(90deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+  }
+
+  /* Skill Card */
+  .skill-card {
+    @apply bg-card rounded-xl p-6 shadow-soft hover-lift border border-border/50;
+  }
+}
+
+/* ================================================
+   HAMBURGER MENU (CSS Only)
+   ================================================ */
+
+/* Hide checkbox */
+#nav-toggle {
+  display: none;
+}
+
+/* Hamburger icon */
+.hamburger {
+  @apply w-6 h-5 relative cursor-pointer flex-col justify-between hidden;
+}
+
+.hamburger span {
+  @apply block w-full h-0.5 bg-foreground rounded-full transition-all duration-300;
+}
+
+/* Mobile menu hidden by default */
+.mobile-menu {
+  @apply fixed inset-0 top-16 bg-background/95 backdrop-blur-sm opacity-0 invisible transition-all duration-300 z-40;
+}
+
+/* Show mobile menu when checkbox is checked */
+#nav-toggle:checked ~ .mobile-menu {
+  @apply opacity-100 visible;
+}
+
+/* Animate hamburger to X */
+#nav-toggle:checked ~ .nav-header .hamburger span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+#nav-toggle:checked ~ .nav-header .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+#nav-toggle:checked ~ .nav-header .hamburger span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Show hamburger on mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    @apply flex;
   }
 }
