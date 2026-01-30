@@ -27,8 +27,8 @@ const HeroSection = () => {
 
       <div className="relative z-10 section-container pt-24 pb-12">
         <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-16">
-          {/* Profile Flip Card with Enhanced Animation */}
-          <div className="animate-slide-in-left">
+          {/* Profile Flip Card with Enhanced Animation - Now First */}
+          <div className="animate-slide-in-left order-1 lg:order-1">
             <div className="relative">
               {/* Glow effect behind card */}
               <div className="absolute -inset-4 gradient-hero opacity-30 blur-2xl rounded-3xl animate-pulse-glow" />
@@ -43,16 +43,19 @@ const HeroSection = () => {
           </div>
 
           {/* Text Content with Staggered Animations */}
-          <div className="text-center lg:text-left max-w-xl">
+          <div className="text-center lg:text-left max-w-xl order-2 lg:order-2">
             {/* Animated badge */}
             <div className="animate-fade-in-up inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
               <Sparkles className="w-4 h-4 text-primary animate-pulse" />
               <span className="text-primary font-medium text-sm tracking-wide">Welcome to my portfolio</span>
             </div>
             
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight animate-fade-in-up delay-100">
+            {/* Name - More Visible with solid gradient and larger size */}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 leading-tight animate-fade-in-up delay-100">
               Hi, I'm{" "}
-              <span className="gradient-text animate-shimmer inline-block">Calet Lobo</span>
+              <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-primary animate-gradient-flow" style={{ backgroundSize: '200% auto' }}>
+                Calet Lobo
+              </span>
             </h1>
             
             {/* Animated role badges */}
